@@ -7,6 +7,11 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TransactionController;
 
+Route::middleware('auth:sanctum')->get('/auth/user', function (Request $request) {
+    return $request->user();
+});
+
+
 // Public routes
 Route::post('/auth/register', [AuthController::class, 'register']);
 Route::post('/auth/login', [AuthController::class, 'login']);
